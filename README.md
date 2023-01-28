@@ -1,1 +1,1 @@
-# SQL_Course-mysql-
+# SQL_Course
