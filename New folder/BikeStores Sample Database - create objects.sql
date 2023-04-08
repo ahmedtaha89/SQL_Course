@@ -150,7 +150,13 @@ CREATE TABLE production.stocks (
 
 
 
-select * from  orders
-LIMIT 1;
 
+	 select quantity ,quantity*2 as new_quantity   from sales.order_items ;
+	  select * from sales.order_items ;
+	    select * from production.stocks 
 
+/*  concatant  */
+	   select * from sales.customers;
+		   select first_name , last_name from sales.customers;
+
+select first_name + ' ' + last_name as name , phone from sales.customers;
