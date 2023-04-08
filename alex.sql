@@ -64,6 +64,11 @@ group by Gender
 
 select * from EmployeeSalary ;
 
-select distinct JobTitle , count(JobTitle) over(partition by JobTitle) as TotalJobTitle  from EmployeeSalary ;
+select distinct JobTitle , count(JobTitle) over(partition by JobTitle order by JobTitle desc) as TotalJobTitle  from EmployeeSalary ;
 
-select distinct JobTitle , count(JobTitle)  from EmployeeSalary group by JobTitle;
+select distinct JobTitle , count(JobTitle) from EmployeeSalary group by JobTitle;
+
+
+with CTE_JobTitle as
+(select distinct JobTitle , count(JobTitle) over(partition by JobTitle order by JobTitle desc) as TotalJobTitle  from EmployeeSalary )
+select JobTitle from CTE_JobTitle
